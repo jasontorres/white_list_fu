@@ -1,0 +1,14 @@
+WhiteListFu
+===========
+
+An ActiveRecord before_validation hook that makes sure data saved is white listed using the WhiteList plugin that can be found at http://svn.techno-weenie.net/projects/plugins/white_list/. That means you do your filtering inside the model instead of doing everything on the views.
+
+This makes your model data XSS safe, which it should be.
+
+Syntax:
+
+by default it white_list all your string and text fields, but in case that you don't want to,  just use the  :except option.
+
+class Post < ActiveRecord::Base
+  white_listed :except => [:name, :body]
+end
